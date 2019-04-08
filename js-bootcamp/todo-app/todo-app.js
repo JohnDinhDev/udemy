@@ -5,6 +5,8 @@
 const bodyEl = document.querySelector('body');
 const buttonEl = document.querySelector('#add-todo');
 const todoInputEl = document.querySelector('#todo-input');
+const todoDivEl = document.querySelector('#todos');
+const filterInputEL = document.querySelector('#filter-input');
 
 //////////////////////////
 ////////// DATA //////////
@@ -23,14 +25,18 @@ const todos = [{
     text: 'Do work',
     completed: true,
 }, {
-    text: 'Excercise',
+    text: 'Exercise',
     completed: false,
 },]
 
 // Array of incompleted todos
-const incompleteTodos = todos.filter(todo => {
+let incompleteTodos = todos.filter(todo => {
     return !todo.completed;
 });
+
+const filters = {
+    searchText: '',
+}
 
 //////////////////////////
 // FUNCTION EXPRESSIONS //
@@ -52,6 +58,21 @@ const generateSummary = function (todos) {
     }
 }
 
+const renderTodos = function (todos, filters, append) {
+    const filteredTodos = todos.filter( todo => {
+        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
+    });
+
+    append.innerHTML = '';
+
+    incompleteTodos = filteredTodos.filter(todo => !todo.completed);
+    renderElement('h2', generateSummary(incompleteTodos), append);
+
+    filteredTodos.forEach( todo => {
+        renderElement('p', todo.text, append);
+    });
+}
+
 //////////////////////////
 //// EVENT LISTENERS /////
 //////////////////////////
@@ -64,13 +85,13 @@ todoInputEl.addEventListener('input', e => {
     console.log(e.target.value);
 });
 
-///////////////////////////////////////////////////////////
+filterInputEL.addEventListener('input', e => {
+    filters.searchText = e.target.value;
+    renderTodos(todos, filters, todoDivEl);
+});
 
-// Rendering Summary
-renderElement('h2', generateSummary(todos), bodyEl);
+//////////////////////////
+/// INITIAL RENDERING ////
+//////////////////////////
 
-// Rendering todo text
-for (let todo of todos) {
-    renderElement('p', todo.text, bodyEl);
-}
-
+renderTodos(todos, filters, todoDivEl);
