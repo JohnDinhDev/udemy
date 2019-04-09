@@ -8,9 +8,11 @@
 </head>
 <body>
     <h1>Todos</h1>
-    <input type="text" id="filter-input" placeholder="Filter your todos">
-    <input id="todo-input" type="text" placeholder="Add a todo">
-    <button id="add-todo">Add Todo</button>
+    <form id="todo-form">
+        <input type="text" id="filter-input" placeholder="Filter your todos" autocomplete="off">
+        <input type="text" placeholder="Add something to do" name="todo" autocomplete="off">
+        <button>Add Todo</button>
+    </form>
     <div id="todos">
 
     </div>

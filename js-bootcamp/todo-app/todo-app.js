@@ -3,10 +3,9 @@
 //////////////////////////
 
 const bodyEl = document.querySelector('body');
-const buttonEl = document.querySelector('#add-todo');
-const todoInputEl = document.querySelector('#todo-input');
 const todoDivEl = document.querySelector('#todos');
 const filterInputEL = document.querySelector('#filter-input');
+const todoFormEl = document.querySelector('#todo-form');
 
 //////////////////////////
 ////////// DATA //////////
@@ -73,21 +72,28 @@ const renderTodos = function (todos, filters, append) {
     });
 }
 
+const addTodo = function (todos, text) {
+    todos.push({
+        text: text,
+        completed: false,
+    });
+    renderTodos(todos, filters, todoDivEl);
+}
+
 //////////////////////////
 //// EVENT LISTENERS /////
 //////////////////////////
 
-buttonEl.addEventListener('click', e => {
-    e.target.textContent = 'Nihowdy';
-});
-
-todoInputEl.addEventListener('input', e => {
-    console.log(e.target.value);
-});
-
 filterInputEL.addEventListener('input', e => {
     filters.searchText = e.target.value;
     renderTodos(todos, filters, todoDivEl);
+});
+
+todoFormEl.addEventListener('submit', e => {
+    e.preventDefault();
+    const text = e.target.elements.todo.value;
+    addTodo(todos, text);
+    e.target.elements.todo.value = '';
 });
 
 //////////////////////////

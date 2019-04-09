@@ -1,3 +1,6 @@
+//////////
+// DATA //
+//////////
 const notes = [{
     title: 'My next trip',
     body: 'I would like to go to Japan',
@@ -9,11 +12,21 @@ const notes = [{
     body: 'Get a new gaming chair',
 },];
 
-const notesDivEl = document.querySelector('#notes');
-
 const filters = {
     searchText: '',
 }
+
+//////////////////
+// DOM ELEMENTS //
+//////////////////
+
+const notesDivEl = document.querySelector('#notes');
+const createNoteBtn = document.querySelector('#create-note');
+const searchTextEl = document.querySelector('#search-text');
+
+//////////////////////////
+// FUNCTION EXPRESSIONS //
+//////////////////////////
 
 const renderNotes = function (notes, filters) {
     const filteredNotes = notes.filter( note => {
@@ -29,19 +42,23 @@ const renderNotes = function (notes, filters) {
     })
 }
 
-renderNotes(notes, filters);
+/////////////////////
+// EVENT LISTENERS //
+/////////////////////
 
-document.querySelector('#create-note').addEventListener('click', e => {
+
+createNoteBtn.addEventListener('click', e => {
     e.target.textContent = 'Hello World';
 });
 
-document.querySelector('#remove-all').addEventListener('click', e => {
-    document.querySelectorAll('.note').forEach(note => {
-        note.remove();
-    });
-});
-
-document.querySelector('#search-text').addEventListener('input', e => {
+searchTextEl.addEventListener('input', e => {
     filters.searchText = e.target.value;
     renderNotes(notes, filters);
 });
+
+/////////////////////
+// INITIAL RENDERS //
+/////////////////////
+
+renderNotes(notes, filters);
+
