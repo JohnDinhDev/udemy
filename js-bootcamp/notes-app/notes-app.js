@@ -56,6 +56,10 @@ searchTextEl.addEventListener('input', e => {
     renderNotes(notes, filters);
 });
 
+document.querySelector('#for-fun').addEventListener('change', e => {
+    console.log(e.target.checked);
+});
+
 /////////////////////
 // INITIAL RENDERS //
 /////////////////////

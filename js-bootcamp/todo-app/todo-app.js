@@ -6,6 +6,7 @@ const bodyEl = document.querySelector('body');
 const todoDivEl = document.querySelector('#todos');
 const filterInputEL = document.querySelector('#filter-input');
 const todoFormEl = document.querySelector('#todo-form');
+const hideCompletedEl = document.querySelector('#hide-completed');
 
 //////////////////////////
 ////////// DATA //////////
@@ -33,9 +34,15 @@ let incompleteTodos = todos.filter(todo => {
     return !todo.completed;
 });
 
+//////////////////////////
+//////// FILTERS /////////
+//////////////////////////
+
 const filters = {
     searchText: '',
+    hideCompleted: false,
 }
+
 
 //////////////////////////
 // FUNCTION EXPRESSIONS //
@@ -59,7 +66,11 @@ const generateSummary = function (todos) {
 
 const renderTodos = function (todos, filters, append) {
     const filteredTodos = todos.filter( todo => {
-        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
+        if (filters.hideCompleted) {
+            return todo.text.toLowerCase().includes(filters.searchText.toLowerCase()) && !todo.completed;            
+        } else {
+            return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
+        }
     });
 
     append.innerHTML = '';
@@ -94,6 +105,11 @@ todoFormEl.addEventListener('submit', e => {
     const text = e.target.elements.todo.value;
     addTodo(todos, text);
     e.target.elements.todo.value = '';
+});
+
+hideCompletedEl.addEventListener('change', e => {
+    filters.hideCompleted = e.target.checked;
+    renderTodos(todos, filters, todoDivEl);
 });
 
 //////////////////////////
