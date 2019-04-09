@@ -23,6 +23,7 @@ const filters = {
 const notesDivEl = document.querySelector('#notes');
 const createNoteBtn = document.querySelector('#create-note');
 const searchTextEl = document.querySelector('#search-text');
+const filterByEl = document.querySelector('#filter-by');
 
 //////////////////////////
 // FUNCTION EXPRESSIONS //
@@ -56,9 +57,9 @@ searchTextEl.addEventListener('input', e => {
     renderNotes(notes, filters);
 });
 
-document.querySelector('#for-fun').addEventListener('change', e => {
-    console.log(e.target.checked);
-});
+filterByEl.addEventListener('change', e => {
+    console.log(e.target.value);
+})
 
 /////////////////////
 // INITIAL RENDERS //
