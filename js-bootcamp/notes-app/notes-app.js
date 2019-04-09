@@ -16,6 +16,19 @@ const filters = {
     searchText: '',
 }
 
+///////////////////
+// LOCAL STORAGE //
+///////////////////
+
+const user = {
+    name: 'John',
+    age: 21,
+}
+
+// localStorage.setItem('name', JSON.stringify(user))
+console.log(JSON.parse(localStorage.getItem('name')))
+
+
 //////////////////
 // DOM ELEMENTS //
 //////////////////
