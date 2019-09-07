@@ -1,0 +1,40 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+p {
+    font-weight: 600;
+}
+
+.blog-container {
+    width: 60%;
+    margin: auto;
+    border: 20px solid #bdc3c7;
+    /* padding: 5%; */
+}
+
+.blog-container h2 {
+    color: #2c3e50;
+}
+
+.blog-date {
+    color: #3498db;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.blog-article {
+    padding: 50px;
+}
+
+.blog-article p:nth-of-type(1) {
+    border-left: 5px solid #bdc3c7;
+    padding-left: 5px;
+}
