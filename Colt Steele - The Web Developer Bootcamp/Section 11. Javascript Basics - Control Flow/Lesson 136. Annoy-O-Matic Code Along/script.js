@@ -7,7 +7,7 @@ function appendH1() {
 }
 
 function annoy(input) {
-    if (input.toLowerCase().indexOf('yes') > 0 || input.toLowerCase().indexOf('yeah') > 0) {
+    if (input.toLowerCase().indexOf('yes') > -1 || input.toLowerCase().indexOf('yeah') > -1) {
         appendH1();
     } else {
         annoy(prompt('Are we there yet?'));
