@@ -7,6 +7,7 @@ const hardBtn = document.querySelector('#hard-btn');
 const easyBtn = document.querySelector('#easy-btn');
 
 let difficultyNumber = 6;
+let gameState = false;
 let colorData = setColorData();
 let colorAnswer = generateAnswer();
 let winningWords = [
@@ -15,20 +16,13 @@ let winningWords = [
     'You\'re awesome!',
     'Great!'
 ]
-let gameState = false;
 
-
+// Creates a random rgb string
 function generateRandomRGB() {
     const r = Math.floor(Math.random() * 255);
     const g = Math.floor(Math.random() * 255);
     const b = Math.floor(Math.random() * 255);
     return `rgb(${r}, ${g}, ${b})`;
-}
-
-//function to pick random answer
-function generateAnswer() {
-    const randomAnswer = Math.floor(Math.random() * colorData.length);
-    return colorData[randomAnswer];
 }
 
 // Sets colorData data
@@ -39,6 +33,19 @@ function setColorData() {
     }
     return arr;
 }
+
+//function to pick random color answer
+function generateAnswer() {
+    const randomAnswer = Math.floor(Math.random() * colorData.length);
+    return colorData[randomAnswer];
+}
+
+// Selects random winning phrase
+function randomWinningWord() {
+    let index = Math.floor(Math.random() * winningWords.length);
+    return winningWords[index];
+}
+
 
 function init() {
     for (let square of squaresEl) {
@@ -54,10 +61,7 @@ function init() {
     rgbNumbersEl.textContent = colorAnswer.toUpperCase();
 }
 
-function randomWinningWord() {
-   let index = Math.floor(Math.random() * winningWords.length);
-   return winningWords[index];
-}
+
 
 // event listener for squares
 squaresEl.forEach(square => {
@@ -75,6 +79,7 @@ squaresEl.forEach(square => {
     });
 });
 
+// event listener for New Game button
 newGameBtn.addEventListener('click', e => {
     headerEl.style.backgroundColor = 'rgb(138, 157, 218)';
     messageEl.textContent = '';
@@ -82,6 +87,7 @@ newGameBtn.addEventListener('click', e => {
     init();
 });
 
+// Event Listener for "Hard" button
 hardBtn.addEventListener('click', e => {
     if (hardBtn.className !== 'active') {
         headerEl.style.backgroundColor = 'rgb(138, 157, 218)';
@@ -94,6 +100,7 @@ hardBtn.addEventListener('click', e => {
     }
 });
 
+// Event listener for "Easy" button
 easyBtn.addEventListener('click', e => {
     if (easyBtn.className !== 'active') {
         headerEl.style.backgroundColor = 'rgb(138, 157, 218)';
