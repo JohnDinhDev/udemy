@@ -39,6 +39,9 @@ function setColorData() {
 }
 
 function init() {
+    for (let square of squaresEl) {
+        square.style.backgroundColor = '#201F20';
+    }
     colorData = setColorData();
     // Init colors onto squares
     for (let i = 0; i < difficultyNumber; i++) {
@@ -58,9 +61,9 @@ function randomWinningWord() {
 squaresEl.forEach(square => {
     square.addEventListener('click', e => {
         if (square.style.backgroundColor === colorAnswer && !gameState) {
-            gameState = !gameState;
-            for (let square of squaresEl) {
-                square.style.backgroundColor = colorAnswer;
+            gameState = true;
+            for (let i = 0; i < difficultyNumber; i++) {
+                squaresEl[i].style.backgroundColor = colorAnswer;
             }
             headerEl.style.backgroundColor = colorAnswer;
             messageEl.textContent = randomWinningWord();
@@ -71,9 +74,9 @@ squaresEl.forEach(square => {
 });
 
 newGameBtn.addEventListener('click', e => {
-    headerEl.backgroundColor = 'rgb(138, 157, 218)';
+    headerEl.style.backgroundColor = 'rgb(138, 157, 218)';
     messageEl.textContent = '';
-    gameState = !gameState;
+    gameState = false;
     init();
 })
 
