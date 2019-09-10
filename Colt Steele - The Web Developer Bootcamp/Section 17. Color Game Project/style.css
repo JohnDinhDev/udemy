@@ -9,6 +9,7 @@
   body {
       box-sizing: border-box;
       font-family: 'Open Sans', sans-serif;
+        background-color: #201F20;
   }
 
 .heading {
@@ -24,4 +25,34 @@
 
 .heading .rgb-numbers {
     display: block;
+}
+
+.button-container {
+    background-color: white;
+    text-align: center;
+    height: 2rem;
+}
+
+.button-container button {
+    line-height: 2rem;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: pink;
+    outline: none;
+    padding: 0 0.5rem;
+    transition: background 1000ms;
+}
+
+.button-container  button:hover {
+    background: pink;
+    color: white;
+}
+
+.button-container .message {
+    padding: 0 15rem;
+}
+
+#main {
 }
