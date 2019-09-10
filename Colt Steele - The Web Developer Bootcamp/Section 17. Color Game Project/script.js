@@ -3,6 +3,8 @@ const squaresEl = document.querySelectorAll('.square');
 const messageEl = document.querySelector('.message');
 const headerEl = document.querySelector('.heading')
 const newGameBtn = document.querySelector('#new-game');
+const hardBtn = document.querySelector('#hard-btn');
+const easyBtn = document.querySelector('#easy-btn');
 
 let difficultyNumber = 6;
 let colorData = setColorData();
@@ -78,6 +80,33 @@ newGameBtn.addEventListener('click', e => {
     messageEl.textContent = '';
     gameState = false;
     init();
-})
+});
+
+hardBtn.addEventListener('click', e => {
+    if (hardBtn.className !== 'active') {
+        headerEl.style.backgroundColor = 'rgb(138, 157, 218)';
+        difficultyNumber = 6;
+        easyBtn.classList.remove('active');
+        hardBtn.classList.add('active');
+        messageEl.textContent = '';
+        gameState = false;
+        init();
+    }
+});
+
+easyBtn.addEventListener('click', e => {
+    if (easyBtn.className !== 'active') {
+        headerEl.style.backgroundColor = 'rgb(138, 157, 218)';
+        difficultyNumber = 3;
+        hardBtn.classList.remove('active');
+        easyBtn.classList.add('active');
+        messageEl.textContent = '';
+        gameState = false;
+        init();
+    }
+});
+
+
+
 
 init();
