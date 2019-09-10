@@ -16,6 +16,7 @@
     text-align: center;
     background-color: rgb(138, 157, 218);
     color: white;
+    transition: background 500ms;
 }
 
 .heading h2 {
@@ -71,4 +72,5 @@
     float: left;
     margin: 1.66%;
     border-radius: 10%;
+    transition: background 500ms;
 }

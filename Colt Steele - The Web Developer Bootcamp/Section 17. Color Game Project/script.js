@@ -106,7 +106,4 @@ easyBtn.addEventListener('click', e => {
     }
 });
 
-
-
-
 init();
