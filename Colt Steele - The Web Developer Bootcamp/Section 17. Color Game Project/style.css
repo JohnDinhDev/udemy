@@ -55,4 +55,16 @@
 }
 
 #main {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+#main .square {
+    width: 30%;
+    padding-bottom: 30%;
+    background-color: pink;
+    float: left;
+    margin: 1.66%;
+    border-radius: 10%;
 }
