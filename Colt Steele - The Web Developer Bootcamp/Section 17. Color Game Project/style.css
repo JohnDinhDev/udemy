@@ -1,0 +1,76 @@
+  *,
+  *::before,
+  *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+  }
+
+  body {
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+        background-color: #201F20;
+  }
+
+.heading {
+    text-align: center;
+    background-color: rgb(138, 157, 218);
+    color: white;
+    transition: background 500ms;
+}
+
+.heading h2 {
+    padding: 1.5rem 0;
+    font-size: 3rem;
+}
+
+.heading .rgb-numbers {
+    display: block;
+}
+
+.button-container {
+    background-color: white;
+    text-align: center;
+    height: 2rem;
+}
+
+.button-container button {
+    line-height: 2rem;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: rgb(138, 157, 218);
+    outline: none;
+    padding: 0 0.5rem;
+    transition: background 1000ms;
+}
+
+.button-container button.active {
+    background-color: rgb(138, 157, 218);
+    color: white;
+}
+
+.button-container  button:hover {
+    background: rgb(138, 157, 218);
+    color: white;
+}
+
+.button-container .message {
+    padding: 0 15rem;
+}
+
+#main {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+#main .square {
+    width: 30%;
+    padding-bottom: 30%;
+    float: left;
+    margin: 1.66%;
+    border-radius: 10%;
+    transition: background 500ms;
+}
