@@ -1,0 +1,8 @@
+<h1>This is the campgrounds page!</h1>
+
+<% for (let campground of data) { %>
+    <div>
+        <h4><%= campground.name %></h4>
+        <img src="<%=campground.img%>">
+    </div>
+<% } %>
