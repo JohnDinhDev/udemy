@@ -1,0 +1,14 @@
+<% include partials/header %>
+
+<h1>This is the campgrounds page!</h1>
+
+<a href="/campgrounds/new">Add New Campground</a>
+
+<% for (let campground of data) { %>
+    <div>
+        <h4><%= campground.name %></h4>
+        <img src="<%=campground.img%>">
+    </div>
+<% } %>
+
+<% include partials/footer %>
