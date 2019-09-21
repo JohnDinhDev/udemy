@@ -1,0 +1,9 @@
+<h1>Signup form</h1>
+<% if (errorMessage) { %>
+    <p style="color: red;"><%=errorMessage%></p>
+<% } %>
+<form action="/register" method="POST">
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
+    <button>Submit</button>
+</form>
