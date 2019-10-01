@@ -30,5 +30,15 @@ public class Main {
         if (topScore > secondTopScore && topScore < 100) {
             System.out.println("Greater than second top score and less than 100");
         }
+
+        boolean isCar = false;
+
+        if (isCar) {
+            System.out.println("This is not supposed to happen");
+
+            boolean wasCar = isCar ? true: false;
+        }
+
+
     }
 }
