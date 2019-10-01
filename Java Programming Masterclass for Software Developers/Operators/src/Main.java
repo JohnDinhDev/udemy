@@ -13,5 +13,12 @@ public class Main {
         System.out.println("2 * 10 = " + result);
 
         result = result / 5; // 20 / 5 = 4;
+
+        boolean isAlien = false;
+
+        if (isAlien == false) {
+            System.out.println("It is not an alien!");
+            System.out.println("And I am scared of aliens");
+        }
     }
 }
