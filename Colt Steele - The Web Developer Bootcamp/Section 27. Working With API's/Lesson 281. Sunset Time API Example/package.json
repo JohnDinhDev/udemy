@@ -9,7 +9,7 @@
   "author": "John Dinh",
   "license": "ISC",
   "dependencies": {
-    "moment-timezone": "^0.5.26",
+    "moment-timezone": "^0.5.35",
     "request": "^2.88.0"
   }
 }
